@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown"
 
-export default function CustomMarkdownInterpreter({ content } : {content: string}) {
+export default function CustomMarkdownInterpreter({content} : {content: string}) {
 
     return(
         <article className="prose prose-neutral text-black">
@@ -28,8 +28,11 @@ export default function CustomMarkdownInterpreter({ content } : {content: string
                     <code>
                         {children}
                     </code>
-                )
+                ),
 
+                img: ({ src, alt }) => (
+                    <img src={src} alt={alt ?? ""} className="rounded-2xl"/>
+                    )
                 }}>
                 {content}
             </ReactMarkdown>
